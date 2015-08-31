@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import <iAd/iAd.h>
 
 @interface ViewController ()
+
+@property (strong, nonatomic) ADBannerView *adBannerView;
 
 @end
 
@@ -17,6 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.view.backgroundColor = [UIColor purpleColor];
+    self.adBannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+    self.adBannerView.frame = CGRectMake(0, self.view.frame.size.height - 50, self.view.frame.size.width, 50);
+    [self.view addSubview:self.adBannerView];
+
 }
 
 - (void)didReceiveMemoryWarning {
